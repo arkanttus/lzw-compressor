@@ -37,5 +37,5 @@ lzw = LZW()
 
 list_encode = lzw.compressor(content)
 save(list_encode)
-
+print(list_encode)
 print(lzw.decompressor(list_encode))
