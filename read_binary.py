@@ -6,7 +6,6 @@ with open('t1.bin', 'rb') as file:
     a = int.to_bytes(10, 2, byteorder='big')
     print(a)
     print(int.from_bytes(a, byteorder='big'))
-
     while True:
         byte = file.read(byte_length)
 
