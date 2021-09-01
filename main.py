@@ -14,18 +14,19 @@ def save(list_encode):
         num_bytes = needed_bytes(max_value)
 
         # Writing needed bytes in first position of file
-        f.write(to_byte(num_bytes))
+        f.write(to_byte(num_bytes, 1))
 
         # Writing values in list as binary
         for num_code in list_encode:
-            f.write(to_byte(num_code))
+            byte = to_byte(num_code, num_bytes)
+            f.write(byte)
 
 def needed_bytes(num):
     b = bin(num)[2:]
     return ceil(len(b) / 8)
 
-def to_byte(num):
-    return int.to_bytes(num, needed_bytes(num), 'big')
+def to_byte(num, num_bytes):
+    return int.to_bytes(num, num_bytes, 'big')
 
 
 
@@ -38,5 +39,4 @@ lzw = LZW()
 list_encode = lzw.compressor(content)
 save(list_encode)
 
-
-lzw.decompressor(list_encode)
+print(lzw.decompressor(list_encode))
