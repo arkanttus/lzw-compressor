@@ -1,19 +1,20 @@
 from typing import List
-from math import ceil
+
 
 class LZW:
-
+    """
+    This class implements compressor and decompressor functions using LZW technique.
+    """
     def __init__(self) -> None:
         pass
     
-
     def compressor(self, text) -> List[int]:
         last_idx = 128
         c_dict = {}
         acc = ''
         output_encoded = []
 
-        for idx, word in enumerate(text):
+        for word in text:
 
             if self.in_dict(acc + word, c_dict):
                 acc += word
@@ -42,7 +43,7 @@ class LZW:
         for code in list_encode[1:]:
             if code in c_dict or code < 128:
                 actual_word = self.translate(code, c_dict)
-                
+
                 result += actual_word
                 acc = self.translate(old_code, c_dict)
 
