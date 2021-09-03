@@ -16,6 +16,6 @@ with open('t1.bin', 'rb') as file:
 
     print(arr)
 
-lzw = LZW()
+# lzw = LZW()
 
-print(lzw.decompressor(arr))
+# print(lzw.decompressor(arr))
