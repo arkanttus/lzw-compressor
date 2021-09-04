@@ -1,10 +1,3 @@
-"""
-Terminal args:
-1: Operation 'encode' or 'decode'
-1: Path to file that will be compiled
-2: Path to where bin file will be saved
-"""
-
 from math import ceil
 from lzw import LZW
 from file_utils import open_txt, open_bin, save_bin, save_txt
